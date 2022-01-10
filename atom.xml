@@ -2,19 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>KIKI&#39;s Blog</title>
   
-  
+  <subtitle>分享科研总结和生活琐碎</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-08T01:49:25.449Z</updated>
+  <updated>2022-01-10T06:55:29.846Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>KIKI</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>code show</title>
+    <link href="http://example.com/2022/01/09/%E4%BB%A3%E7%A0%81/"/>
+    <id>http://example.com/2022/01/09/%E4%BB%A3%E7%A0%81/</id>
+    <published>2022-01-09T12:23:00.000Z</published>
+    <updated>2022-01-10T06:55:29.846Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world &#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">这个是自己的测试页啦</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
