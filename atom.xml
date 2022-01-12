@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-11T08:40:32.241Z</updated>
+  <updated>2022-01-12T02:18:10.038Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>信号处理期末考试</title>
+    <link href="http://example.com/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    <id>http://example.com/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</id>
+    <published>2022-01-11T16:00:00.000Z</published>
+    <updated>2022-01-12T02:18:10.038Z</updated>
+    
+    <content type="html"><![CDATA[<p>5道题</p><p>在面对一个具体问题，利用深度学习，PCA，等，怎么选择某个具体的算法，各有什么优缺点。<br>从小波变换到二代小波到EMD，为什么，重在理解原理，不要过于关注细节，理解每个方法用来解决哪些问题。<br>内积变换，时域统计指标，自相关，。。。就都考呗<br>什么场合怎么选择</p>]]></content>
+    
+    
+    <summary type="html">主要总结两种常用的时序差分算法SARSA和Q-Learning的基本概念和区别</summary>
+    
+    
+    
+    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>强化学习（一）时序差分算法</title>
