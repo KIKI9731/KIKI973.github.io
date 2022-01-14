@@ -36,25 +36,6 @@
   </entry>
   
   <entry>
-    <title>信号处理期末考试</title>
-    <link href="http://example.com/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
-    <id>http://example.com/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</id>
-    <published>2022-01-11T16:00:00.000Z</published>
-    <updated>2022-01-12T11:31:47.394Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="考试类型及范围"><a href="#考试类型及范围" class="headerlink" title="考试类型及范围"></a>考试类型及范围</h1><p>&emsp;&emsp;5道论述题：<br>&emsp;&emsp;1.在面对一个具体问题，怎么选择某个具体的算法（PCA，深度学习，或者其他），每种方法有什么优缺点。<br>&emsp;&emsp;2.从小波变换到二代小波到EMD，为什么会出现这些方法，重在理解每种方法的原理，每个方法主要用来解决哪些问题。（不需要过于关注细节和公式。）</p><hr><h1 id="平稳信号"><a href="#平稳信号" class="headerlink" title="平稳信号"></a>平稳信号</h1><p>&emsp;&emsp;课本83页：</p><blockquote><p>平稳随机信号的各阶统计量与时间无关，而某阶统计量随时间变化的信号称为非平稳信号或时变信号</p></blockquote><p>&emsp;&emsp;课本112页：</p><blockquote><p>为了克服傅里叶变换不能同时进行时、频分析的不足…<br>傅里叶变换得到的频率分量是对信号历程平均化的计算结果</p></blockquote><h1 id="非平稳信号的处理方法"><a href="#非平稳信号的处理方法" class="headerlink" title="非平稳信号的处理方法"></a>非平稳信号的处理方法</h1><h2 id="短时傅里叶变换（课本112-114页）"><a href="#短时傅里叶变换（课本112-114页）" class="headerlink" title="短时傅里叶变换（课本112-114页）"></a>短时傅里叶变换（课本112-114页）</h2><p>&emsp;&emsp;通过加窗$h(t)$,对窗内信号进行观察，窗的移动通过改变$h(t-\tau)$中的$\tau$将x(t)映射到时频二维平面$（\tau,f）$。<br>&emsp;&emsp;式（5.1.6）表明，其时间分辨率和频率分辨率是相互制约的，且由于其是窗的大小和形状都固定不变，因此一旦确定，在整个时频平面上的时频分辨率是保持不变的。而反映信号高频成分要用窄时窗，反映信号低频成分要用宽时窗，不能同时满足这些要求。</p><h1 id="EMD"><a href="#EMD" class="headerlink" title="EMD"></a>EMD</h1><h2 id="为什么用EMD"><a href="#为什么用EMD" class="headerlink" title="为什么用EMD"></a>为什么用EMD</h2><p>&emsp;&emsp;EMD（Empirical Mode Decomposition）作为时频域的处理方法，相对于同样是时频域方法的小波分析有什么好处呢？</p><p>&emsp;&emsp;EMD最显著的特点，就是其克服了<strong>基函数无自适应性</strong>的问题。啥意思呢？回忆小波分析部分的内容，我们会知道小波分析是需要选定某一个小波基的，小波基的选择对整个小波分析的结果影响很大，一旦确定了小波基，在整个分析过程中将无法更换，即使该小波基在全局可能是最佳的，但在某些局部可能并不是，所以小波分析的基函数缺乏适应性。<br>&emsp;&emsp;用EMD有什么好处呢？对于一段未知信号，不需要做预先分析与研究，就可以直接开始分解。这个方法会自动按照一些固有模式按层次分好，而不需要人为设置和干预。</p>]]></content>
-    
-    
-    <summary type="html">主要总结两种常用的时序差分算法SARSA和Q-Learning的基本概念和区别</summary>
-    
-    
-    
-    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>强化学习（一）时序差分算法</title>
     <link href="http://example.com/2022/01/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://example.com/2022/01/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</id>
