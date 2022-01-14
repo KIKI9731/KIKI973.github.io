@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++学习笔记 | KIKI's Blog</title><meta name="keywords" content="博客，KIKI"><meta name="author" content="KIKI"><meta name="copyright" content="KIKI"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="主要总结C++的一些小的概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习笔记">
+<meta property="og:url" content="http://example.com/2022/01/13/C++/index.html">
+<meta property="og:site_name" content="KIKI&#39;s Blog">
+<meta property="og:description" content="主要总结C++的一些小的概念">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/KIKI9731/image/raw/master/C艹.jfif">
+<meta property="article:published_time" content="2022-01-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-14T08:52:35.018Z">
+<meta property="article:author" content="KIKI">
+<meta property="article:tag" content="博客，KIKI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/KIKI9731/image/raw/master/C艹.jfif"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/01/13/C++/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-14 16:52:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="KIKI's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/KIKI9731/image/main/006GMZnVgy1g4jclj8kuvj31400u0dy6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/KIKI9731/image/raw/master/C艹.jfif')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">KIKI's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-12T16:00:00.000Z" title="发表于 2022-01-13 00:00:00">2022-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-14T08:52:35.018Z" title="更新于 2022-01-14 16:52:35">2022-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h1><h2 id="前置-和后置-的区别："><a href="#前置-和后置-的区别：" class="headerlink" title="前置++和后置++的区别："></a>前置++和后置++的区别：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">5</span>,m = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a,b,c,d;</span><br><span class="line">a = n++;<span class="comment">//后置++</span></span><br><span class="line">b = m--;</span><br><span class="line">c = ++n;<span class="comment">//前置++</span></span><br><span class="line">d = --m;</span><br><span class="line">cout&lt;&lt;a&lt;&lt;b&lt;&lt;c&lt;&lt;d&lt;&lt;endl;<span class="comment">/*输出结果为5，10，7，8。首先对于后置++，可以看到对于a和b是先进行了赋值操作，再进行后置++。执行后a=15,b=10,n=6,m=9。对于前置++，首先进行前置++，再进行赋值操作*/</span></span><br></pre></td></tr></table></figure>
+<p>后置++的优先级&gt;前置++的优先级&gt;乘和除的优先级&gt;…&gt;关系运算&gt;，&lt;，&gt;=,&lt;=&gt;关系运算==，！=&gt;赋值运算，优先级和上述性质无关。用优先性解释上述现象有矛盾，所以，可以按照这个记吧</p>
+<h2 id="强制类型转换："><a href="#强制类型转换：" class="headerlink" title="强制类型转换："></a>强制类型转换：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (a)</span><br><span class="line">(int) a    //两种方式均可</span><br></pre></td></tr></table></figure>
+<p>其优先级高于乘数法，和逻辑非，按位取反同级。<br>因此  double(n)/2  是先将n转换为double再做除法</p>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><blockquote>
+<p>双目运算：&amp;&amp; ||<br>单目运算：!</p>
+</blockquote>
+<p>逻辑！负号-&gt;乘除运算等&gt;&gt;关系运算&gt;，&lt;，&gt;=,&lt;=&gt;关系运算==，!=&gt;逻辑&amp;&amp;&gt;逻辑||。<br>为了避免优先级的混乱，多使用圆括号</p>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><blockquote>
+<p>&amp;，|，^(异或)，&lt;&lt;左移,&gt;&gt;右移,~(按位取反)</p>
+</blockquote>
+<p><strong>按位取反的时候要考虑到数据的字节数，对于一个正数，前面所有的0都要变成1</strong>,左移一位相当于<em>2，右移相当于除2。复合位运算(&amp;=，|=等)的结合顺序是<em>*从右向左</em></em>，除此之外还有(!,~,+,-,前置++/—)也是从右向左结合，比较特殊。</p>
+<h2 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h2><ol>
+<li>“=”赋值运算，其结合顺序是从右向左且其左侧(lvalue)不能是表达式，只能是变量，数组等</li>
+<li>?:,比如y=(x&gt;=1?1:0)即可表达一个分段函数:y=1(x&gt;=1),y=0(x&lt;1)</li>
+<li>逗号表达式，依次计算每个表达式的值，整体等于最后一个逗号后式子的值，如y=(1,2,3+5),则y=8</li>
+</ol>
+<hr>
+<h2 id="算法优先级顺序"><a href="#算法优先级顺序" class="headerlink" title="算法优先级顺序"></a>算法优先级顺序</h2><p><img src="https://gitee.com/KIKI9731/image/raw/master/QQ截图20220113205502.png" alt="优先级"></p>
+<h2 id="数据类型转换原则"><a href="#数据类型转换原则" class="headerlink" title="数据类型转换原则"></a>数据类型转换原则</h2><p><img src="https://gitee.com/KIKI9731/image/raw/master/QQ截图20220113210115.png" alt="chenge"></p>
+<h2 id="整型变量和字符变量"><a href="#整型变量和字符变量" class="headerlink" title="整型变量和字符变量"></a>整型变量和字符变量</h2><p>其在内存中存放的都是整数，整数，存放的是二进制格式，字符，存放的是ASCII码值(<128)，因此可以出现以下形式：
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">a = c+<span class="number">2</span>;<span class="comment">//将字符变量赋给整型变量</span></span><br><span class="line">c = <span class="number">98</span>; <span class="comment">//将整数常量赋给字符变量</span></span><br></pre></td></tr></table></figure><br>上述输出a=67,因为’A’的ASCII码的值为65<br>c = ‘b’,因为’b’的ASCII码的值为98</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>char name[40] = ‘zhang’;<br>转义字符：\r回车，回到本行开头，\n换行，到下一行开头<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;xjtu\nhello&quot;</span>&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;xjtu123\rhello&quot;</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure><br>执行得：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xjtu</span><br><span class="line">hello</span><br><span class="line">hello23//第二次cout的xjtu1被\r后的hello覆盖</span><br></pre></td></tr></table></figure></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">KIKI</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/01/13/C++/">http://example.com/2022/01/13/C++/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">KIKI's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/KIKI9731/image/raw/master/C艹.jfif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"><img class="next-cover" src="https://raw.githubusercontent.com/KIKI9731/image/main/alphago.jfif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">信号处理期末考试</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/KIKI9731/image/main/006GMZnVgy1g4jclj8kuvj31400u0dy6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">KIKI</div><div class="author-info__description">一只努力减肥的KI</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:2498333273@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">算术运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE-%E5%92%8C%E5%90%8E%E7%BD%AE-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">前置++和后置++的区别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">强制类型转换：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.4.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.5.</span> <span class="toc-text">特殊符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%BC%98%E5%85%88%E7%BA%A7%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.6.</span> <span class="toc-text">算法优先级顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="toc-number">1.7.</span> <span class="toc-text">数据类型转换原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B%E5%8F%98%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E5%8F%98%E9%87%8F"><span class="toc-number">1.8.</span> <span class="toc-text">整型变量和字符变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.9.</span> <span class="toc-text">字符串</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/01/13/C++/" title="C++学习笔记"><img src="https://gitee.com/KIKI9731/image/raw/master/C艹.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习笔记"/></a><div class="content"><a class="title" href="/2022/01/13/C++/" title="C++学习笔记">C++学习笔记</a><time datetime="2022-01-12T16:00:00.000Z" title="发表于 2022-01-13 00:00:00">2022-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" title="信号处理期末考试"><img src="https://raw.githubusercontent.com/KIKI9731/image/main/alphago.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="信号处理期末考试"/></a><div class="content"><a class="title" href="/2022/01/12/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" title="信号处理期末考试">信号处理期末考试</a><time datetime="2022-01-11T16:00:00.000Z" title="发表于 2022-01-12 00:00:00">2022-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="强化学习（一）时序差分算法"><img src="https://raw.githubusercontent.com/KIKI9731/image/main/alphago.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="强化学习（一）时序差分算法"/></a><div class="content"><a class="title" href="/2022/01/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="强化学习（一）时序差分算法">强化学习（一）时序差分算法</a><time datetime="2022-01-10T16:00:00.000Z" title="发表于 2022-01-11 00:00:00">2022-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/11/markdown/" title="Markdown的入门级操作"><img src="https://raw.githubusercontent.com/KIKI9731/image/main/markdown.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown的入门级操作"/></a><div class="content"><a class="title" href="/2022/01/11/markdown/" title="Markdown的入门级操作">Markdown的入门级操作</a><time datetime="2022-01-10T16:00:00.000Z" title="发表于 2022-01-11 00:00:00">2022-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/10/%E4%BB%A3%E7%A0%81/" title="如何利用Hexo搭建自己的博客"><img src="https://gitee.com/KIKI9731/image/raw/master/hexo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何利用Hexo搭建自己的博客"/></a><div class="content"><a class="title" href="/2022/01/10/%E4%BB%A3%E7%A0%81/" title="如何利用Hexo搭建自己的博客">如何利用Hexo搭建自己的博客</a><time datetime="2022-01-09T16:00:00.000Z" title="发表于 2022-01-10 00:00:00">2022-01-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By KIKI</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
