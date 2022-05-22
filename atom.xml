@@ -91,28 +91,6 @@
   </entry>
   
   <entry>
-    <title>深度学习回顾性记录</title>
-    <link href="http://example.com/2022/01/11/%E4%B8%8D%E6%83%B3%E5%8F%91%E5%B8%83%E7%9A%84/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://example.com/2022/01/11/%E4%B8%8D%E6%83%B3%E5%8F%91%E5%B8%83%E7%9A%84/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</id>
-    <published>2022-01-10T16:00:00.000Z</published>
-    <updated>2022-02-05T12:39:26.827Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="卷积神经网络基础"><a href="#卷积神经网络基础" class="headerlink" title="卷积神经网络基础"></a>卷积神经网络基础</h1><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>&emsp;&emsp;常用的有如下两种，其中Sigmoid函数饱和时梯度非常小，接近于0，因此容易出现梯度消失现象。ReLu缺点在于反向传播过程中，如果有一个非常大的梯度经过时，反向传播更新后可能导致权重分布中心小于0，使得无法更新权重(此时ReLu后为0，不会再有梯度信息产生)，进入失活状态，且无法恢复。<br><img src="https://gitee.com/KIKI9731/image/raw/master/sigmoid.png" alt="sigmoid"></p><h2 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h2><ol><li><strong>SGD优化器</strong>： $w_{t+1} = w_t -\alpha*g(w_t)$容易受样本噪声影响，可能陷入局部最优解。</li><li><strong>SGD+Momentum优化器</strong>:  <script type="math/tex">v_t =\eta *v_{t-1}+\alpha*g(w_t),w_{t+1}=w_t-v_t</script>，引入了动量，优化时会考虑上一步的优化方向。</li><li><strong>Adagrad</strong>，<strong>RMSProp</strong>，<strong>Adam优化器</strong>：都属于自适应的优化器，比较接近，但各有不同，Adagrad的学习率下降可能会过快，在收敛前就收敛，RMS相对会慢一点，Adam则更复杂，包含了一阶动量和二阶动量，效果会更好一点。</li></ol><h2 id="ToTensor"><a href="#ToTensor" class="headerlink" title="ToTensor"></a>ToTensor</h2><p>&emsp;&emsp;值得注意的是，在将一个图片或者数组变为Tensor时，会将维度位置发生变化，(H x W x C)  变为  (C x H x W)。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToTensor</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Convert a ``PIL Image`` or ``numpy.ndarray`` to tensor. This transform does not support torchscript.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Converts a PIL Image or numpy.ndarray (H x W x C) in the range</span></span><br><span class="line"><span class="string">    [0, 255] to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]</span></span><br><span class="line"><span class="string">    if the PIL Image belongs to one of the modes (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1)</span></span><br><span class="line"><span class="string">    or if the numpy.ndarray has dtype = np.uint8</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    In the other cases, tensors are returned without scaling.</span></span><br></pre></td></tr></table></figure><br>&emsp;&emsp;所以如果将tensor再还原时，要交换回来。<br><img src="https://gitee.com/KIKI9731/image/raw/master/QQ截图20220205203556.png" alt=""></p><h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>&emsp;&emsp;从下述交叉熵函数的定义可知，其中已经包含了Softmax函数，因此不需要再额外添加。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CrossEntropyLoss</span>(<span class="params">_WeightedLoss</span>):</span></span><br><span class="line">    <span class="string">r&quot;&quot;&quot;This criterion combines :class:`~torch.nn.LogSoftmax` and :class:`~torch.nn.NLLLoss` in one single class.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    It is useful when training a classification problem with `C` classes.</span></span><br><span class="line"><span class="string">    If provided, the optional argument :attr:`weight` should be a 1D `Tensor`</span></span><br><span class="line"><span class="string">    assigning weight to each of the classes.</span></span><br><span class="line"><span class="string">    This is particularly useful when you have an unbalanced training set.</span></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;卷积神经网络基础&quot;&gt;&lt;a href=&quot;#卷积神经网络基础&quot; class=&quot;headerlink&quot; title=&quot;卷积神经网络基础&quot;&gt;&lt;/a&gt;卷积神经网络基础&lt;/h1&gt;&lt;h2 id=&quot;激活函数&quot;&gt;&lt;a href=&quot;#激活函数&quot; class=&quot;headerlink&quot; </summary>
-      
-    
-    
-    
-    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>如何利用Hexo搭建自己的博客</title>
     <link href="http://example.com/2022/01/10/Hexo/"/>
     <id>http://example.com/2022/01/10/Hexo/</id>
